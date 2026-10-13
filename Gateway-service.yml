@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+          - id: servicio1
+            uri: lb://SALUDO-SERVICE
+            predicates:
+              - Path=/say/say/**
+          - id: servicio2
+            uri: lb://REST-EMPLOYER
+            predicates:
+              - Path=/api/employee/**
+          - id: servicio3
+            uri: lb://REST-CUENTA
+            predicates:
+              - Path=/api/cuenta/**
